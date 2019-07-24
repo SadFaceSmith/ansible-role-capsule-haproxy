@@ -1,0 +1,21 @@
+---
+# tasks file for lb_config
+- name: Install Policy-CoreUtils and HAProxy
+  delegate_to: "{{ lb_server }}"
+  yum:
+    name: policycoreutils-python,haproxy
+    state: installed
+
+- name: Set SELinux Boolean
+  delegate_to: "{{ lb_server }}"
+  seboolean:
+   name: haproxy_connect_any
+   state: yes
+   persistent: yes
+
+- name: configure haproxy
+  template:
+    dest: /etc/haproxy/haproxy.cfg
+    src: ../templates/haproxy.cfg.j2
+  notify:
+    - restart haproxy
