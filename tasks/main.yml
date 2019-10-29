@@ -1,17 +1,18 @@
 ---
 # tasks file for lb_config
+
 - name: Install Policy-CoreUtils and HAProxy
-  delegate_to: "{{ lb_server }}"
   yum:
     name: policycoreutils-python,haproxy
     state: installed
+  when: inventory_hostname in groups['loadbalancers']
 
 - name: Set SELinux Boolean
-  delegate_to: "{{ lb_server }}"
   seboolean:
    name: haproxy_connect_any
    state: yes
    persistent: yes
+  when: inventory_hostname in groups['loadbalancers']
 
 - name: configure haproxy
   template:
@@ -19,3 +20,4 @@
     src: ../templates/haproxy.cfg.j2
   notify:
     - restart haproxy
+  when: inventory_hostname in groups['loadbalancers']

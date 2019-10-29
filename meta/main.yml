@@ -1,4 +1,5 @@
 galaxy_info:
+  name: ansible-role-capsule-haproxy
   author: Ethan Smith
   description: HAProxy Config role for load balanced Red Hat Satellite Capsules. Tested on 6.4
   company: Red Hat, Inc (ethan@redhat.com)

@@ -1,2 +1,5 @@
-localhost
-
+[loadbalancers]
+capsule.sbx.dso.ncps.us-cert.gov
+[capsules]
+sat6-lb-capsule-01.sbx.dso.ncps.us-cert.gov
+sat6-lb-capsule-02.sbx.dso.ncps.us-cert.gov

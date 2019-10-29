@@ -2,13 +2,13 @@
 # vars file for lb_config
 domain: sbx.dso.ncps.us-cert.gov
 sat_server: sat6-master-01.{{ domain }}
-capsule1: sat6-capsule-01.{{ domain }}
-capsule2: sat6-capsule-02.{{ domain }}
+capsule1: sat6-lb-capsule-01.{{ domain }}
+capsule2: sat6-lb-capsule-02.{{ domain }}
 org: DHS
 location: SBX
 cert_path1: /tmp/{{ capsule1 }}.tar
 cert_path2: /tmp/{{ capsule2 }}.tar
-lb_server: capsule.{{ domain }}
+lb_server: lb-capsule.{{ domain }}
 capsules:
-  - sat6-capsule-01.{{ domain }}
-  - sat6-capsule-02.{{ domain }}
+  - sat6-lb-capsule-01.{{ domain }}
+  - sat6-lb-capsule-02.{{ domain }}
